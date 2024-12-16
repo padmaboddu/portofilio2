@@ -1,6 +1,53 @@
+ <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname,element){
+        for( let tablink of tablinks){
+            tablink.classList.remove("active-link");
 
+        }
+        for( let tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
             
-      <script>
+        }
+        element.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+        <!-- -----card----- -->
+       
+    }
+    setInterval(function() {
+      var cardInner = document.querySelector('.card-inner');
+      cardInner.classList.toggle('rotate');
+  }, 2000);
+
+  </script>
+  <script>
+    var sidemenu= document.getElementById("sidemenu");
+    function openmenu(){
+      sidemenu.style.right = "0";
+    }
+    function closemenu(){
+      sidemenu.style.right = "-200px";
+    }
+  </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzNjK9-xQfgUt4KEhCEliDPNY0AY741IxE4iCqxyY1dIbOpgEui3jot2ejBkZdQJtzmoQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          msg.innerHTML="Message sent successfully"
+          setTimeout(function(){
+            msg.innerHTML=""
+          },5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  <script>
     var typed = new Typed(".multiple-text", {
     strings: ["A Web Developer", "A Creative Designer"],
     typeSpeed: 100,
@@ -53,15 +100,7 @@
   
 
   </script>
-  <script>
-    var sidemenu= document.getElementById("sidemenu");
-    function openmenu(){
-      sidemenu.style.right = "0";
-    }
-    function closemenu(){
-      sidemenu.style.right = "-200px";
-    }
-  </script>
+   
   
   
   function filterSelection(category) {
