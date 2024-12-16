@@ -1,31 +1,56 @@
-var typed = new Typed(".multiple-text", {
+
+            
+      <script>
+    var typed = new Typed(".multiple-text", {
     strings: ["A Web Developer", "A Creative Designer"],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
     loop: true,
   });
-  <script>
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    function opentab(tabname,element){
-        for( let tablink of tablinks){
-            tablink.classList.remove("active-link");
-
-        }
-        for( let tabcontent of tabcontents){
-            tabcontent.classList.remove("active-tab");
-            
-        }
-        element.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-        <!-- -----card----- -->
-       
+  let menuList = document.getElementById("menuList")
+  menuList.style.maxHeight = "0px";
+  function toggleMenu(){
+    if(menuList.style.maxHeight == "0px")
+      {
+      menuList.style.maxHeight = "300px";
     }
-    setInterval(function() {
-      var cardInner = document.querySelector('.card-inner');
-      cardInner.classList.toggle('rotate');
-  }, 2000);
+    else{
+      menuList.style.maxHeight = "0px";
+    }
+  }
+  
+  
+  function filterSelection(category) {
+      const cards = document.getElementsByClassName('card');
+      if (category === 'all') {
+      
+        for (let card of cards) {
+          card.style.display = 'block';
+        }
+      } else {
+      
+        for (let card of cards) {
+          const dataName = card.getAttribute('data-name');
+          if (dataName === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      }
+  
+    
+      const buttons = document.getElementsByClassName('filter')[0].getElementsByTagName('button');
+      for (let button of buttons) {
+        if (button.getAttribute('data-name') === category) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      }
+    }z
+  
 
   </script>
   <script>
