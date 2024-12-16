@@ -498,7 +498,7 @@ justify-content: space-evenly;
   border-radius: 10px;
 }
 .certificate{
-  height: 100px;
+  height: 50px;
   width: 500px;
   background-image:linear-gradient(to right,#F05269,#C570EA,#3BAFEA);
 }
